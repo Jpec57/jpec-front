@@ -1,0 +1,20 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: #303d42;
+    overflow: hidden;
+    border-radius: 10px;
+
+    .card-footer{
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+}
+
+img{
+    max-width:100%;
+    max-height:100%;
+}

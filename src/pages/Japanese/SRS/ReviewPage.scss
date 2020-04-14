@@ -1,0 +1,94 @@
+.review-box {
+  display: flex;
+  flex-direction: column;
+
+  .review-header {
+    padding: 15px;
+    border: solid black;
+    background-color: #cccccccc;
+    border-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-width: 1px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+  }
+  .background-default {
+    background-color: #ff9933;
+  }
+  .background-error {
+    background-color: darkred;
+  }
+  .background-correct {
+    background-color: darkgreen;
+  }
+  .review-answer-box {
+    min-width: 70px;
+    min-height: 70px;
+    display: flex;
+    color: white;
+
+    .input-box {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      padding: 10px;
+      flex: 9;
+      input {
+        width: 90%;
+        border: none;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: transparent;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+
+        border-bottom: 1px inset white;
+        &:focus {
+          text-emphasis: none;
+          text-decoration: none;
+        }
+        &::placeholder {
+          color: white;
+          opacity: 0.5;
+        }
+      }
+    }
+    .next-button {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      background-color: black;
+      cursor: pointer;
+      flex: 1;
+    }
+  }
+  .review-solution-box {
+    padding: 15px;
+    background-color: #e8e8e8;
+    border: solid whitesmoke;
+    border-radius: 3px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-width: 1px;
+    flex: 4;
+    height: 0%;
+
+    appearance: none;
+    transition: height 0.25s linear;
+    .visible {
+      height: 100%;
+    }
+  }
+  .toggle {
+    appearance: none;
+    transition: all 500ms ease;
+  }
+}
