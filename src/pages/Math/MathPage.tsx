@@ -41,7 +41,7 @@ const MathPage: React.FC = () => {
 
     </div>
   );
-}
+};
 
 export default MathPage;
 /*

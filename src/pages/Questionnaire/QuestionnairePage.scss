@@ -1,0 +1,47 @@
+.intro{
+  text-align: center;
+}
+
+.big-icon{
+  font-size: 40px;
+}
+
+
+.centered-content{
+  justify-content: center;
+}
+.invisible{
+  visibility: hidden;
+}
+
+.vertical-centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-create-button-div{
+  margin-top: 50px;
+}
+
+button.add-answer-button{
+  background-color: #777;
+  color: #777;
+}
+
+.form-header{
+  border-radius: 5px;
+  border: 2px solid;
+
+  input{
+    border-radius: 0;
+  }
+  .question-number{
+    padding: 10px;
+    min-width: 50px;
+    background-color: #777;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

@@ -2750,6 +2750,24 @@ input, select, textarea {
 	}
 }
 
+@for $i from 1 through 20 {
+	.ml-#{$i}{
+		margin-left: #{$i}px;
+	}
+}
+
+@for $i from 1 through 20 {
+	.mt-#{$i}{
+		margin-top: #{$i}px;
+	}
+}
+
+@for $i from 1 through 20 {
+	.mb-#{$i}{
+		margin-bottom: #{$i}px;
+	}
+}
+
 .margin-container{
 	margin-left: 5em;
 	margin-right: 5em;

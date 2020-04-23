@@ -10,7 +10,7 @@ const Card = (props: any) => {
     return (
             <div className="card" onClick={()=>{history.push(path)}}>   
             <div>
-                <img src={img ?? defaultImg} alt="img"/>
+                <img src={img == null ? defaultImg : img} alt="img"/>
             </div>
             <div className="card-footer">
                 <span>{name}</span>

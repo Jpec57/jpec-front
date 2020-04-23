@@ -13,6 +13,8 @@ import KNNPage from "./pages/Math/kNN/KNN";
 import RegressionPage from "./pages/Math/Regression/RegressionPage";
 import JapanesePage from "./pages/Japanese/JapanesePage";
 import ReviewPage from "./pages/Japanese/SRS/ReviewPage";
+import QuestionnairePage from "./pages/Questionnaire/QuestionnairePage";
+import QuestionnaireResultPage from "./pages/Questionnaire/QuestionnaireResultPage";
 
 export default function App() {
   return (
@@ -42,11 +44,18 @@ export default function App() {
                   Maths
                 </Link>
               </li>
+              <li>
+                <Link to="/quizz" className="icon solid fa-question">
+                  Quizz
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
       </section>
       <Switch>
+        <Route path="/quizz/:token" component={QuestionnaireResultPage} />
+        <Route path="/quizz" component={QuestionnairePage} />
         <Route path="/math/linear-regression" component={RegressionPage} />
         <Route path="/math/k-nn" component={KNNPage} />
         <Route path="/math/deep-learning" component={DeepLearningPage} />
