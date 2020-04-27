@@ -14,6 +14,7 @@ import RegressionPage from "./pages/Math/Regression/RegressionPage";
 import JapanesePage from "./pages/Japanese/JapanesePage";
 import ReviewPage from "./pages/Japanese/SRS/ReviewPage";
 import QuestionnairePage from "./pages/Questionnaire/QuestionnairePage";
+import QuestionnaireReviewPage from "./pages/Questionnaire/QuestionnaireReviewPage";
 import QuestionnaireResultPage from "./pages/Questionnaire/QuestionnaireResultPage";
 
 export default function App() {
@@ -54,7 +55,8 @@ export default function App() {
         </div>
       </section>
       <Switch>
-        <Route path="/quizz/:token" component={QuestionnaireResultPage} />
+        <Route path="/quizz/:resultToken/result" component={QuestionnaireResultPage} />
+        <Route path="/quizz/:token" component={QuestionnaireReviewPage} />
         <Route path="/quizz" component={QuestionnairePage} />
         <Route path="/math/linear-regression" component={RegressionPage} />
         <Route path="/math/k-nn" component={KNNPage} />
