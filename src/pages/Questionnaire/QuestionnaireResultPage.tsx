@@ -68,9 +68,11 @@ const QuestionnaireResultPage: React.FC = () => {
 
                         {questions[currentIndex].possibleAnswers.map((answer, index) => {
                             let isWronglySelected = false;
+                            let isSuccessfullySelected = false;
                             let isCorrect = answer.isCorrectAnswer;
                             if (questionnaireAttempts[currentAttemptIndex] != null) {
                                 const selectedAnswers = questionnaireAttempts[currentAttemptIndex].questionAttempts[currentIndex].userAnswer.substr(1).split(',');
+                                isSuccessfullySelected = (answer.isCorrectAnswer && selectedAnswers.indexOf(answer.id.toString()) !== -1) === true;
                                 isWronglySelected = !answer.isCorrectAnswer && selectedAnswers.indexOf(answer.id.toString()) !== -1;
                             }
 
@@ -81,6 +83,8 @@ const QuestionnaireResultPage: React.FC = () => {
                                         ${isCorrect ? 'selected' : ''} 
                                         ${isWronglySelected ? 'wrongly-selected' : ''}`}>
                                             {answer.text}
+                                        {isSuccessfullySelected ? <i className="ml-20 icon solid fa-check"></i> : null}
+                                        {isWronglySelected ? <i className="ml-20 icon solid fa-times"></i> : null}
                                         </span>
                                 </div>
                             );

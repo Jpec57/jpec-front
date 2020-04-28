@@ -236,7 +236,7 @@ $("#predict-button").click(async function () {
 
 function displayResults(data, modelSelected) {
     console.log(data, modelSelected);
-    var predictedValue;
+    var predictedValue = 0;
     var bestPercent = 0;
     data.forEach((value, key) => {
         console.log(`key ${key}`, value);
@@ -245,6 +245,7 @@ function displayResults(data, modelSelected) {
             bestPercent = value;
         }
     });
-    console.log(`The best choice is ${predictedValue} with assurance of ${bestPercent}`);
+	$('#drawn-number').text(`${predictedValue}`);
+	console.log(`The best choice is ${predictedValue} with assurance of ${bestPercent}`);
 }
 });

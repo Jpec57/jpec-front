@@ -6,7 +6,7 @@ const FirstPage: React.FC = () => {
     if (drawnNumber >= 0){
       return (
       <div>
-        You draw a <span>{drawnNumber}</span>
+        You draw a <span id="drawn-number"></span>
       </div>);
     }
     return null;
@@ -28,6 +28,6 @@ const FirstPage: React.FC = () => {
       {renderResult()}
     </div>
   );
-}
+};
 
 export default FirstPage;
