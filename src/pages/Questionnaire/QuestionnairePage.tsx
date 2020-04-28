@@ -30,7 +30,7 @@ const QuestionnairePage: React.FC = () => {
     const initAnswers: Array<Answer> = [{
         text: '',
         isCorrectAnswer: true
-        },
+    },
         {
             text: '',
             isCorrectAnswer: false
@@ -73,6 +73,12 @@ const QuestionnairePage: React.FC = () => {
     const handleAnswerValidityChange = (index: number) => {
         const newAnswers = [...currentAnswers];
         newAnswers[index].isCorrectAnswer = !newAnswers[index].isCorrectAnswer;
+        setCurrentAnswers(newAnswers);
+    };
+
+    const deleteAnswer = (index: number) => {
+        const newAnswers = [...currentAnswers];
+        newAnswers.splice(index, 1);
         setCurrentAnswers(newAnswers);
     };
 
@@ -200,7 +206,7 @@ const QuestionnairePage: React.FC = () => {
 
                         {currentAnswers.map((answer, index) => {
                             return (
-                                <div className="flex-horizontal">
+                                <div className="flex-horizontal aln-center">
                                     <input type="checkbox" id={`check-answer-${currentQuestionIndex}-${index}`}
                                            name={`check-answer-${currentQuestionIndex}-${index}`}
                                            className={`check-answer ${answer.isCorrectAnswer ? 'valid' : 'not-valid'}`}
@@ -215,6 +221,9 @@ const QuestionnairePage: React.FC = () => {
                                             handleAnswerTextChange(index, e.target.value);
                                         }}
                                     />
+                                    <i className="solid icon fa-times-circle delete-icon" onClick={()=>{
+                                        deleteAnswer(index)
+                                    }}/>
                                 </div>
                             );
                         })}
@@ -254,6 +263,7 @@ const QuestionnairePage: React.FC = () => {
                 sur toi même
                 ou quelque chose qui te tient à coeur.
             </p>
+            <p className="intro"><b>(Ne le fais pas sur mobile, wallah tu vas regretter)</b></p>
 
             <div>
                 {_renderForm()}

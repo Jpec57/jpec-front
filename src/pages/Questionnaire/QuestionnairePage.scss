@@ -101,3 +101,12 @@ button.add-answer-button{
 .card{
   padding: 10px;
 }
+
+.delete-icon{
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  border-left: none;
+}
