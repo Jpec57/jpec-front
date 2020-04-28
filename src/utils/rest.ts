@@ -1,4 +1,5 @@
-const remoteUrl = "http://51.158.152.165:8000";
+// const remoteUrl = "http://51.158.152.165:8000";
+const remoteUrl = "https://jpec.be/";
 
 export const makeGetRequest = (uri: String): Promise<Response> => {
     return fetch(`${remoteUrl}${uri}`, {
