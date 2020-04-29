@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.5",
+    "@tensorflow/tfjs": "^1.7.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -18,11 +19,11 @@
     "minimist": "^1.2.5",
     "netlify-cli": "^2.46.0",
     "node-sass": "^4.13.1",
-    "react": "^16.12.0",
+    "react": "^16.13.1",
     "react-dom": "^16.12.0",
     "react-latex": "^1.6.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
+    "react-scripts": "^3.4.0",
     "serialize-javascript": "^2.1.1",
     "styled-components": "^5.0.1",
     "typescript": "~3.7.2"
