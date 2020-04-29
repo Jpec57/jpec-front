@@ -37,6 +37,7 @@ const QuestionnairePage: React.FC = () => {
         }
     ];
     const history = useHistory();
+    const [email, setEmail] = useState('');
     const [form, setForm] = useState(initForm);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(1);
     const [currentQuestion, setCurrentQuestion] = useState('');
@@ -166,7 +167,7 @@ const QuestionnairePage: React.FC = () => {
         }
         setError('');
         const formToSend = {
-            email: form.email,
+            email: email,
             questionnaireQuestions: form.questions.slice(0, nbValidQuestions)
         };
         makePostRequest('/questionnaire', formToSend).then((data: any) => {
@@ -264,6 +265,15 @@ const QuestionnairePage: React.FC = () => {
                 ou quelque chose qui te tient à coeur.
             </p>
             <p className="intro"><b>(Ne le fais pas sur mobile, wallah tu vas regretter)</b></p>
+            <p className="intro">
+                Ajoute ton email si tu veux être averti des réponses à ton formulaire (optionnel):
+                <input
+                    name='email'
+                    type="text"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                />
+            </p>
 
             <div>
                 {_renderForm()}
