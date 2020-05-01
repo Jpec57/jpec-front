@@ -10,6 +10,8 @@ type Coordinate = {
 
 const FirstPage: React.FC = () => {
     const CANVAS_SIZE = [300, 300];
+    const IMG_SIZE = 60;
+    const hiragana = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん';
 
     const [model, setModel] = useState();
     const [drawnNumber, setDrawnNumber] = useState(-1);
@@ -125,20 +127,19 @@ const FirstPage: React.FC = () => {
     // Tensorflow
     useEffect( () => {
         const loadModel = async () => {
-            const modelVariable = await tf.loadLayersModel("./tensorflow/models/model.json");
+            const modelVariable = await tf.loadLayersModel("./tensorflow/all_hir_10e_3_3_b_with_batch/model.json");
             setModel(modelVariable);
         };
         loadModel();
     }, []);
 
     const preprocessCanvas = (image: HTMLCanvasElement) => {
-        let tensor = tf.browser.fromPixels(image)
-            .resizeNearestNeighbor([28, 28])
+        return tf.browser.fromPixels(image)
+            .resizeNearestNeighbor([IMG_SIZE, IMG_SIZE])
             .mean(2)
             .expandDims(2)
             .expandDims()
             .toFloat();
-        return tensor.div(255.0);
     };
 
     const predictAndDisplayResult = async () => {
@@ -149,6 +150,7 @@ const FirstPage: React.FC = () => {
         const tensor = preprocessCanvas(canvas);
         const predictions = await model.predict(tensor).data();
         const results = Array.from(predictions);
+        console.log(results);
         if (results){
             displayResults(results);
         }
@@ -164,14 +166,20 @@ const FirstPage: React.FC = () => {
             }
         });
         setDrawnNumber(predictedValue);
+        console.log('predicted', predictedValue);
+
     };
 
+
+    const getCharacter = (): string => {
+        return hiragana[drawnNumber];
+    };
 
     const renderResult = () => {
         if (drawnNumber >= 0) {
             return (
                 <div className="result-div">
-                    You draw a {drawnNumber} !
+                    You draw a {getCharacter()} !
                 </div>);
         }
         return null;
@@ -197,6 +205,11 @@ const FirstPage: React.FC = () => {
                     await predictAndDisplayResult();
                 }}>Predict
                 </button>
+            </div>
+            <div className="mt-20">
+                <p>
+                    Possible values are the following: {hiragana}
+                </p>
             </div>
         </div>
     );
