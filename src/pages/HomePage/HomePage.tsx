@@ -13,6 +13,7 @@ const FirstPage: React.FC = () => {
     const IMG_SIZE = 60;
     const hiragana = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん';
 
+    const [isLoaded, setIsLoaded] = useState(false);
     const [model, setModel] = useState();
     const [drawnNumber, setDrawnNumber] = useState(-1);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -129,6 +130,7 @@ const FirstPage: React.FC = () => {
         const loadModel = async () => {
             const modelVariable = await tf.loadLayersModel("./tensorflow/all_hir_10e_3_3_b_with_batch/model.json");
             setModel(modelVariable);
+            setIsLoaded(true);
         };
         loadModel();
     }, []);
@@ -186,6 +188,21 @@ const FirstPage: React.FC = () => {
     };
 
 
+    const renderLoadingOrButtons = () => {
+        if (!isLoaded){
+            return (<p>Loading...</p>);
+        }
+        return (<div>
+            <button id="clear-button" className="btn btn-dark" onClick={()=>{
+                clearCanvas();
+            }}>Clear</button>
+            <button id="predict-button" className="btn btn-dark" onClick={async () => {
+                await predictAndDisplayResult();
+            }}>Predict
+            </button>
+        </div>);
+    };
+
     return (
         <div className="container">
             <header className="header-content"></header>
@@ -198,13 +215,7 @@ const FirstPage: React.FC = () => {
                     {renderResult()}
                 </div>
 
-                <button id="clear-button" className="btn btn-dark" onClick={()=>{
-                    clearCanvas();
-                }}>Clear</button>
-                <button id="predict-button" className="btn btn-dark" onClick={async () => {
-                    await predictAndDisplayResult();
-                }}>Predict
-                </button>
+                {renderLoadingOrButtons()}
             </div>
             <div className="mt-20">
                 <p>
