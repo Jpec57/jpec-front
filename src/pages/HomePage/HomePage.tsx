@@ -197,18 +197,12 @@ const FirstPage: React.FC = () => {
             let form = new FormData();
             form.append("type", type);
             form.append("file", file, 'hir.png');
-
-            for (var key of form.entries()) {
-                console.log(key[0] + ', ' + key[1]);
-            }
             makePostFormRequest('hiragana', form).then((res) => {
                 console.log(res);
             }, (err)=> {
                 console.log(err);
             }).then(()=> {
-                if (isHelping){
-                    setShowHirInput(2);
-                }
+                setShowHirInput(2);
             });
         }, 'image/png', 0.95);
     };
@@ -235,7 +229,7 @@ const FirstPage: React.FC = () => {
         if (showHirInput === 2){
             return (
                 <div className="flex-vertical mt-20 hir-buttons">
-                    Thank you <span>❤</span>️️
+                    Thank you️️ for your feedback ❤️
                 </div>
             );
         }
@@ -251,7 +245,9 @@ const FirstPage: React.FC = () => {
                     No, dumbass
                 </button>
             </div>
-            <button className="mt-10">
+            <button className="mt-10" onClick={()=>{
+                setShowHirInput(2);
+            }}>
                 My bad, fam I draw a potato :'(
             </button>
         </div>);
