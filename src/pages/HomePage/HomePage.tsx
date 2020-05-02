@@ -1,19 +1,26 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import './HomePage.scss';
 import * as tf from '@tensorflow/tfjs';
+import {makePostFormRequest} from "../../utils/rest";
 
 type Coordinate = {
     x: number;
     y: number;
 };
 
+type HiraganaForm = {
+  file: File,
+  type: string,
+};
 
 const FirstPage: React.FC = () => {
     const CANVAS_SIZE = [300, 300];
     const IMG_SIZE = 60;
     const hiragana = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん';
 
+    const [hirCate, setHirCate] = useState('');
     const [isLoaded, setIsLoaded] = useState(false);
+    const [showHirInput, setShowHirInput] = useState(0);
     const [model, setModel] = useState();
     const [drawnNumber, setDrawnNumber] = useState(-1);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -114,19 +121,19 @@ const FirstPage: React.FC = () => {
     //end
 
     const clearCanvas = () => {
-      if (!canvasRef.current){
-          return;
-      }
-      setDrawnNumber(-1);
-      const canvas: HTMLCanvasElement = canvasRef.current;
+        if (!canvasRef.current) {
+            return;
+        }
+        setDrawnNumber(-1);
+        const canvas: HTMLCanvasElement = canvasRef.current;
         const context = canvas.getContext('2d');
-        if (context){
+        if (context) {
             context.clearRect(0, 0, CANVAS_SIZE[0], CANVAS_SIZE[1]);
         }
     };
 
     // Tensorflow
-    useEffect( () => {
+    useEffect(() => {
         const loadModel = async () => {
             const modelVariable = await tf.loadLayersModel("./tensorflow/all_hir_10e_3_3_b_with_batch/model.json");
             setModel(modelVariable);
@@ -146,14 +153,14 @@ const FirstPage: React.FC = () => {
 
     const predictAndDisplayResult = async () => {
         const canvas = canvasRef.current;
-        if (!canvas){
+        if (!canvas) {
             return;
         }
         const tensor = preprocessCanvas(canvas);
         const predictions = await model.predict(tensor).data();
         const results = Array.from(predictions);
         console.log(results);
-        if (results){
+        if (results) {
             displayResults(results);
         }
     };
@@ -162,14 +169,12 @@ const FirstPage: React.FC = () => {
         let predictedValue = 0;
         let bestPercent = 0;
         results.forEach((value: any, key: any) => {
-            if (value > bestPercent){
+            if (value > bestPercent) {
                 predictedValue = key;
                 bestPercent = value;
             }
         });
         setDrawnNumber(predictedValue);
-        console.log('predicted', predictedValue);
-
     };
 
 
@@ -177,11 +182,92 @@ const FirstPage: React.FC = () => {
         return hiragana[drawnNumber];
     };
 
+
+    const sendHiraganaToServer = ({isHelping = false, type = null}: {type?: string | null, isHelping?: boolean}) =>{
+        const canvas = canvasRef.current;
+        if (!canvas){
+            return;
+        }
+        canvas.toBlob((blob)=>{
+            if (!blob){
+                return;
+            }
+            type = (!type) ? hirCate : type;
+            const file = new File([blob], "hir.png");
+            let form = new FormData();
+            form.append("type", type);
+            form.append("file", file, 'hir.png');
+
+            for (var key of form.entries()) {
+                console.log(key[0] + ', ' + key[1]);
+            }
+            makePostFormRequest('hiragana', form).then((res) => {
+                console.log(res);
+            }, (err)=> {
+                console.log(err);
+            }).then(()=> {
+                if (isHelping){
+                    setShowHirInput(2);
+                }
+            });
+        }, 'image/png', 0.95);
+    };
+
+
+    const showButtonsOrInput = () => {
+        if (showHirInput === 1) {
+            return (
+                <div className="flex-vertical mt-20 hir-buttons">
+
+                    Please copy/paste drawn hiragana from the possible values
+                    <input onChange={e => setHirCate(e.target.value)}/>
+                    <button className="mt-10" onClick={()=> {
+                        if (hirCate.length <= 0){
+                            return;
+                        }
+                        sendHiraganaToServer({isHelping: true});
+                    }}>
+                        Send correct category
+                    </button>
+                </div>
+            );
+        }
+        if (showHirInput === 2){
+            return (
+                <div className="flex-vertical mt-20 hir-buttons">
+                    Thank you <span>❤</span>️️
+                </div>
+            );
+        }
+        return (<div className="flex-vertical mt-20 hir-buttons">
+            <div className="flex-horizontal">
+                <button className="mr-20 correct-button" onClick={()=> {
+                    sendHiraganaToServer({type: getCharacter()})}}>
+                    Correct ? :D
+                </button>
+                <button className="incorrect-button" onClick={()=> {
+                    setShowHirInput(1);
+                }}>
+                    No, dumbass
+                </button>
+            </div>
+            <button className="mt-10">
+                My bad, fam I draw a potato :'(
+            </button>
+        </div>);
+    };
+
     const renderResult = () => {
         if (drawnNumber >= 0) {
             return (
-                <div className="result-div">
-                    You draw a {getCharacter()} !
+                <div className="result-div flex-vertical">
+                    <p className="mt-20 mb-20">
+                        You draw a {getCharacter()} !
+                    </p>
+
+
+                    {showButtonsOrInput()}
+
                 </div>);
         }
         return null;
@@ -189,13 +275,15 @@ const FirstPage: React.FC = () => {
 
 
     const renderLoadingOrButtons = () => {
-        if (!isLoaded){
+        if (!isLoaded) {
             return (<p>Loading...</p>);
         }
         return (<div>
-            <button id="clear-button" className="btn btn-dark" onClick={()=>{
+            <button id="clear-button" className="btn btn-dark" onClick={() => {
+                setShowHirInput(0);
                 clearCanvas();
-            }}>Clear</button>
+            }}>Clear
+            </button>
             <button id="predict-button" className="btn btn-dark" onClick={async () => {
                 await predictAndDisplayResult();
             }}>Predict
@@ -209,9 +297,9 @@ const FirstPage: React.FC = () => {
             <div>
                 <span>This is a test</span>
                 <div className="flex-horizontal">
-                <div className="canvas-div">
-                    <canvas width={CANVAS_SIZE[0]} height={CANVAS_SIZE[1]} ref={canvasRef}/>
-                </div>
+                    <div className="canvas-div">
+                        <canvas width={CANVAS_SIZE[0]} height={CANVAS_SIZE[1]} ref={canvasRef}/>
+                    </div>
                     {renderResult()}
                 </div>
 

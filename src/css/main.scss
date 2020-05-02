@@ -2840,3 +2840,15 @@ h5{
 .icon{
 	cursor: pointer;
 }
+
+button.incorrect-button{
+	background-color: #f44336;
+}
+
+button.correct-button{
+	background-color: #4CAF50;
+}
+
+button.other-button{
+	background-color: #008CBA;
+}

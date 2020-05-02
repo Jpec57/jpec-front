@@ -1,4 +1,3 @@
-// const remoteUrl = "http://51.158.152.165:8000";
 const remoteUrl = "https://jpec.be/";
 
 export const makeGetRequest = (uri: String): Promise<Response> => {
@@ -16,6 +15,15 @@ export const makePostRequest = (uri: String, data: Object): Promise<Response> =>
         },
         method: 'POST',
         body: JSON.stringify(data)
+    }).then((response) => {
+        return response.json();
+    });
+};
+
+export const makePostFormRequest = (uri: String, data: FormData): Promise<Response> => {
+    return fetch(`${remoteUrl}${uri}`, {
+        method: 'POST',
+        body: data
     }).then((response) => {
         return response.json();
     });
