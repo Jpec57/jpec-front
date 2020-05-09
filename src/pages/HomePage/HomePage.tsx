@@ -2,15 +2,9 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import './HomePage.scss';
 import * as tf from '@tensorflow/tfjs';
 import {makePostFormRequest} from "../../utils/rest";
-
 type Coordinate = {
     x: number;
     y: number;
-};
-
-type HiraganaForm = {
-  file: File,
-  type: string,
 };
 
 const FirstPage: React.FC = () => {
@@ -274,7 +268,7 @@ const FirstPage: React.FC = () => {
         if (!isLoaded) {
             return (<p>Loading...</p>);
         }
-        return (<div>
+        return (<div className="flex-horizontal" style={{width: CANVAS_SIZE[0]}}>
             <button id="clear-button" className="btn btn-dark" onClick={() => {
                 setShowHirInput(0);
                 clearCanvas();
@@ -288,10 +282,8 @@ const FirstPage: React.FC = () => {
     };
 
     return (
-        <div className="container">
-            <header className="header-content"></header>
+        <div className="container home-page">
             <div>
-                <span>This is a test</span>
                 <div className="flex-horizontal">
                     <div className="canvas-div">
                         <canvas width={CANVAS_SIZE[0]} height={CANVAS_SIZE[1]} ref={canvasRef}/>

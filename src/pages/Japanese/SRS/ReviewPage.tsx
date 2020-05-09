@@ -37,7 +37,6 @@ const ReviewPage: React.FC = () => {
 
   return (
     <div className="container">
-      <header className="header-content"></header>
       <div className="page">
         <div className="review-box">
           <div className="review-header">

@@ -1,6 +1,7 @@
 import React, { useRef, MutableRefObject, useState, useEffect } from "react";
 import "./JapanesePage.scss";
 import "../../japanese-translations/test_jap.srt";
+
 const text = `
 1
 00:00:02,168 --> 00:00:04,170
@@ -128,7 +129,7 @@ const JapanesePage: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container japanese-page">
       <header className="header-content"></header>
       <div className="page">
         <div className="audio-player">

@@ -4,6 +4,7 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import "./css/fontawesome-all.min.css";
 import "./css/main.scss";
+import "./css/button.scss";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import FirstPage from "./pages/HomePage/HomePage";
@@ -16,6 +17,7 @@ import ReviewPage from "./pages/Japanese/SRS/ReviewPage";
 import QuestionnairePage from "./pages/Questionnaire/QuestionnairePage";
 import QuestionnaireReviewPage from "./pages/Questionnaire/QuestionnaireReviewPage";
 import QuestionnaireResultPage from "./pages/Questionnaire/QuestionnaireResultPage";
+import EditorPage from "./pages/EditorPage/EditorPage";
 
 export default function App() {
   return (
@@ -64,6 +66,7 @@ export default function App() {
         <Route path="/math" component={MathPage} />
         <Route path="/japanese/review" component={ReviewPage} />
         <Route path="/japanese" component={JapanesePage} />
+        <Route path="/editor" component={EditorPage} />
         <Route path="/" component={FirstPage} />
       </Switch>
     </Router>

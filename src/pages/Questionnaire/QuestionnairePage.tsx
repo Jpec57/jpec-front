@@ -255,7 +255,7 @@ const QuestionnairePage: React.FC = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container quizz-page">
             <header className="header-content">
             </header>
             <p className="intro">

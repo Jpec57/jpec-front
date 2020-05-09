@@ -24,7 +24,7 @@ const mathPages = [
 const MathPage: React.FC = () => {
 
   return (
-    <div className="container">
+    <div className="container math-page">
       <header className="header-content">
       </header>
 

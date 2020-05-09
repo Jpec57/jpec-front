@@ -43,7 +43,7 @@ const KNNPage: React.FC = () => {
 
   return (
 
-    <div className="container flex-horizontal">
+    <div className="container flex-horizontal knn-page">
 
     {renderTableContent(size.width)}
 

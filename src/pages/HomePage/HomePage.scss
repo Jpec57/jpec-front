@@ -56,3 +56,11 @@
 .hir-buttons{
   font-size: 14px;
 }
+
+.home-page{
+  .btn{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+}

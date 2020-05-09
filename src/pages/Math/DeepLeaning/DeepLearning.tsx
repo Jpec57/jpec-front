@@ -67,7 +67,7 @@ const DeepLearningPage: React.FC = () => {
 
   return (
 
-    <div className="container flex-horizontal">
+    <div className="container flex-horizontal deep-learning-page">
 
     {renderTableContent(size.width)}
 

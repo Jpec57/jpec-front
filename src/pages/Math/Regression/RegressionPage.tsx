@@ -83,7 +83,7 @@ const RegressionPage: React.FC = () => {
 
   return (
 
-    <div className="container flex-horizontal">
+    <div className="container flex-horizontal regression-page">
 
     {renderTableContent(size.width)}
 
