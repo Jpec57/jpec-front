@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b3a281a-5e0c-471d-ba1a-da0ba6ed6c3c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/css/button.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/HomePage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/HomePage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Japanese/JapanesePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Japanese/JapanesePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Japanese/SRS/ReviewPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Japanese/SRS/ReviewPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Math/DeepLeaning/DeepLearning.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Math/DeepLeaning/DeepLearning.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Math/MathPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Math/MathPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Math/Regression/RegressionPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Math/Regression/RegressionPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Math/kNN/KNN.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Math/kNN/KNN.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Questionnaire/QuestionnairePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Questionnaire/QuestionnairePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,14 +18,14 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47226173">
+    <splitter split-orientation="horizontal" split-proportion="0.4751067">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/pages/HomePage/HomePage.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="299">
-                  <caret line="285" selection-start-line="285" selection-end-line="285" />
+                <state relative-caret-position="385">
+                  <caret line="297" column="55" lean-forward="true" selection-start-line="297" selection-start-column="55" selection-end-line="297" selection-end-column="55" />
                   <folding>
                     <element signature="e#0#70#0" expanded="true" />
                   </folding>
@@ -127,11 +111,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/pages/Questionnaire/QuestionnairePage.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="260" column="33" lean-forward="true" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="33" />
+                <state relative-caret-position="259">
+                  <caret line="125" column="34" lean-forward="true" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
                   <folding>
                     <element signature="e#0#38#0" expanded="true" />
                   </folding>
@@ -140,13 +124,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/Questionnaire/QuestionnaireResultPage.tsx">
+            <entry file="file://$PROJECT_DIR$/src/css/button.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="7" selection-start-line="7" selection-end-line="7" />
-                  <folding>
-                    <element signature="e#0#49#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="178">
+                  <caret line="43" column="23" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -176,8 +157,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="284">
-                  <caret line="60" selection-start-line="60" selection-end-line="60" />
+                <state relative-caret-position="440">
+                  <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#70#0" expanded="true" />
                   </folding>
@@ -188,8 +169,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
                 </state>
               </provider>
             </entry>
@@ -207,7 +188,7 @@
             <entry file="file://$PROJECT_DIR$/src/css/button.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1275">
-                  <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+                  <caret line="85" column="17" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -267,6 +248,9 @@
       <find>1em 0 1em 0;</find>
       <find>fle</find>
       <find>butto</find>
+      <find>&lt;form</find>
+      <find>mit={handleSubmit</find>
+      <find>handleSubmit</find>
     </findStrings>
     <replaceStrings>
       <replace>currentIndex</replace>
@@ -294,7 +278,6 @@
         <option value="$PROJECT_DIR$/src/pages/Questionnaire/QuestionnaireReviewPage.tsx" />
         <option value="$PROJECT_DIR$/src/pages/Questionnaire/QuestionnaireResultPage.tsx" />
         <option value="$PROJECT_DIR$/src/pages/Programming/ProgrammingPage.tsx" />
-        <option value="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss" />
         <option value="$PROJECT_DIR$/src/css/main.scss" />
         <option value="$PROJECT_DIR$/src/pages/Questionnaire/QuestionnairePage.tsx" />
         <option value="$PROJECT_DIR$/src/index.tsx" />
@@ -306,6 +289,8 @@
         <option value="$PROJECT_DIR$/src/pages/HomePage/HomePage.scss" />
         <option value="$PROJECT_DIR$/src/css/button.scss" />
         <option value="$PROJECT_DIR$/src/pages/HomePage/HomePage.tsx" />
+        <option value="$PROJECT_DIR$/src/utils/utils.ts" />
+        <option value="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss" />
         <option value="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx" />
       </list>
     </option>
@@ -518,12 +503,12 @@
       <workItem from="1588375099347" duration="445000" />
       <workItem from="1588439997536" duration="7517000" />
       <workItem from="1589026113936" duration="4584000" />
-      <workItem from="1589035990640" duration="4523000" />
+      <workItem from="1589035990640" duration="8685000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69280000" />
+    <option name="totallyTimeSpent" value="73442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -743,16 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Questionnaire/QuestionnairePage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="260" column="33" lean-forward="true" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Programming/ProgrammingPage.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -827,23 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/HomePage/HomePage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="285" selection-start-line="285" selection-end-line="285" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/button.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -851,17 +809,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/HomePage/HomePage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="297" column="55" lean-forward="true" selection-start-line="297" selection-start-column="55" selection-end-line="297" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="61" selection-start-column="61" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/button.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="85" column="17" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="270">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Questionnaire/QuestionnairePage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="125" column="34" lean-forward="true" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="440">
+          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
           </folding>
