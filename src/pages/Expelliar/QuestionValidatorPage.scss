@@ -1,0 +1,16 @@
+table {
+    border: 1px solid;
+    td, tr {
+        border: 1px solid;
+    }
+}
+
+input[type=checkbox] {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+}
+
+input:checked {
+    background-color: green;
+}

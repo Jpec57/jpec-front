@@ -18,6 +18,8 @@ import QuestionnairePage from "./pages/Questionnaire/QuestionnairePage";
 import QuestionnaireReviewPage from "./pages/Questionnaire/QuestionnaireReviewPage";
 import QuestionnaireResultPage from "./pages/Questionnaire/QuestionnaireResultPage";
 import EditorPage from "./pages/EditorPage/EditorPage";
+import QuestionValidatorPage from "./pages/Expelliar/QuestionValidatorPage";
+import ContactPage from "./pages/Expelliar/ContactPage";
 
 export default function App() {
   return (
@@ -67,6 +69,9 @@ export default function App() {
         <Route path="/japanese/review" component={ReviewPage} />
         <Route path="/japanese" component={JapanesePage} />
         <Route path="/editor" component={EditorPage} />
+        <Route path="/expelliar/questions" component={QuestionValidatorPage} />
+        <Route path="/expelliar/contact" component={ContactPage} />
+
         <Route path="/" component={FirstPage} />
       </Switch>
     </Router>
