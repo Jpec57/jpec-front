@@ -1,16 +1,45 @@
-table {
-    border: 1px solid;
-    td, tr {
+.question-validator-page{
+    td {
         border: 1px solid;
+        color: black;
     }
-}
-
-input[type=checkbox] {
-    width: 40px;
-    height: 40px;
-    background-color: white;
-}
-
-input:checked {
-    background-color: green;
+    
+    input[type=checkbox] {
+        width: 30px;
+        height: 30px;
+        background-color: white;
+    }
+    
+    input:checked {
+        background-color: green;
+    }
+    
+    .action-cell{
+        display: flex;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;
+        * > {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+    }
+    
+    .complexity-input{
+        input {
+            width: 50px;
+            text-align: center;
+        }
+    }
+    
+    .selected-row{
+        background-color: rgb(152,251,152)
+        ;
+    }
+    
+    button {
+        background-color: transparent;
+        padding: 10px;
+    }
 }

@@ -61,3 +61,11 @@ export const makeExpelliarPostFormRequest = (uri: String, data: FormData): Promi
         return response.json();
     });
 };
+
+export const makeExpelliarDeleteRequest = (uri: String): Promise<Response> => {
+    return fetch(`${expelliarRemoteUrl}${uri}`, {
+        method: 'DELETE',
+    }).then((response) => {
+        return response.json();
+    });
+};
