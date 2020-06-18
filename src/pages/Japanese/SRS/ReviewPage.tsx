@@ -9,14 +9,14 @@ enum AnswerCorrectness {
 }
 
 const ReviewPage: React.FC = () => {
-  const [answer, setAnswer] = useState();
-  const [isJapanese, setIsJapanese] = useState(false);
-  const [question, setQuestion] = useState(`
+  // const [answer, setAnswer] = useState();
+  const [isJapanese] = useState(false);
+  const [question] = useState(`
   This is a test with content. This is a test with content. This is
               a test with content. This is a test with content. This is a test
               with content.
   `);
-  const [solution, setSolution] = useState(
+  const [solution] = useState(
     `This will be the description of the solution`
   );
 

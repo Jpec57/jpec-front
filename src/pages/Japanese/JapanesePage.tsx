@@ -71,13 +71,6 @@ const JapanesePage: React.FC = () => {
     null
   );
 
-  // fetch("https://jpec-website.herokuapp.com/test")
-  //   .then(response => {
-  //     return response.json();
-  //   })
-  //   .then(data => {
-  //     console.log(data);
-  //   });
   useEffect(() => {
     const splitSrtFile = () => {
       const tmpDialogLines: Array<string> = [];
