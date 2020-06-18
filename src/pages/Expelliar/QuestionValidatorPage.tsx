@@ -39,12 +39,12 @@ const QuestionValidatorPage: React.FC = () => {
                 return;
             }
             question.answers.forEach(answer => {
-                if (answer?.trim().length == 0){
+                if (answer?.trim().length === 0){
                     isOk = false;
                     return;
                 }
             });
-            if (question.text.trim().length == 0){
+            if (question.text.trim().length === 0){
                 isOk = false;
                 return;
             } 
