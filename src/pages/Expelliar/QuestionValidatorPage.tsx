@@ -87,6 +87,12 @@ const QuestionValidatorPage: React.FC = () => {
         setQuestions(questions);
     }
 
+    const setQuestionField = (questionIndex: number, value: string) => {
+        const newQuestions = [...questions];
+        newQuestions[questionIndex].text = value;
+        setQuestions(questions);
+    }
+
 
     const _renderTab = () => {
         if (questions.length > 0){
@@ -109,7 +115,9 @@ const QuestionValidatorPage: React.FC = () => {
                             selectLine(index)
                         }} className={selectedQuestions[index] ? "selected-row" : ""}>
                         <td>
-                            {question.text}
+                        <textarea name={`question-text-${index}`} defaultValue={question.text} onChange={(e: any)=>{
+                                setQuestionField(index, e.currentTarget.value);
+                            }}/>
                         </td>
                         <td>
                             <div className="complexity-input">

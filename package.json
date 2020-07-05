@@ -1,5 +1,6 @@
 {
   "name": "jpec-front",
+  "homepage": "/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +20,7 @@
     "markdown-it": "^10.0.0",
     "mathjax": "3",
     "minimist": "^1.2.5",
-    "netlify-cli": "^2.46.0",
+    "netlify-cli": "^2.54.0",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.12.0",

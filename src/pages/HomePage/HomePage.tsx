@@ -22,6 +22,18 @@ const FirstPage: React.FC = () => {
     const [mousePosition, setMousePosition] = useState<Coordinate | undefined>(undefined);
 
 
+    useEffect(()=>{
+        //todo
+        const url = new URL('http://localhost:3001/.well-known/mercure');
+        url.searchParams.append('topic', 'https://expelliar.jpec.be/challenge/token1234');
+        const eventSource = new EventSource(url.toString());
+        eventSource.onmessage = event => {
+            console.log(JSON.parse(event.data));
+        }
+        //end
+    }, [])
+
+
     const getCoordinates = (event: MouseEvent): Coordinate | undefined => {
         if (!canvasRef.current) {
             return;
