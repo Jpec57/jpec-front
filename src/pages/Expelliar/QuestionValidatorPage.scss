@@ -40,6 +40,21 @@
     
     button {
         background-color: transparent;
-        padding: 10px;
+        padding: 10px;;
+        font-size: 20px;
+        background-color: orange;
+        color: white;
     }
+
+    #error-container{
+        display: flex;
+        margin-bottom: 20px;
+        #error-span{
+            color: red;
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+
+    
 }

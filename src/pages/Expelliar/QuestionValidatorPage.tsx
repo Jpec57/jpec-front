@@ -11,9 +11,19 @@ interface QuestionType {
     answers: Array<string | undefined>;
     correctAnswer: string;
 };
+
+enum difficulty {
+    EASY,
+    INTERMEDIATE,
+    HARD, 
+    EXPERT
+}
+
 const QuestionValidatorPage: React.FC = () => {
 
     const [questions, setQuestions] = useState<QuestionType[]>([]);
+    const [error, setError] = useState<string>("");
+
 
     const [selectedQuestions, setSelectedQuestions] = useState([false, false]);
 
@@ -22,6 +32,23 @@ const QuestionValidatorPage: React.FC = () => {
             setQuestions(res)
         });
     }, []);
+
+    const getDifficultyByInt = (val: number)=> {
+        switch (val){
+            case 0:
+                return "EASY";
+                case 1: 
+                return "INTERMEDIARY";
+                case 2:
+                    return "HARD";
+                    case 3:
+                        return "EXPERT";
+                        case -1:
+                            return "TODO";
+                            default:
+                                return "NOT VALID";
+        }
+    }
 
 
     const selectLine = (index: number) => {
@@ -33,18 +60,21 @@ const QuestionValidatorPage: React.FC = () => {
     const checkForm = (questions: Array<QuestionType>): boolean => {
         var isOk = true;
         questions.forEach(question => {
-            if (!question.difficulty || question.difficulty < 0 || question.difficulty > 7){
+            if (!question.difficulty || question.difficulty < 0 || question.difficulty > 3){
+                setError(`La difficulté n'est pas valide pour la question "${question.text}" `);
                 isOk = false;
                 return;
             }
             question.answers.forEach(answer => {
                 if (answer?.trim().length === 0){
+                    setError(`Une réponse est vide la question "${question.text}" `);
                     isOk = false;
                     return;
                 }
             });
             if (question.text.trim().length === 0){
                 isOk = false;
+                setError("Une question est vide (pas de texte)");
                 return;
             } 
         });
@@ -72,8 +102,6 @@ const QuestionValidatorPage: React.FC = () => {
                 makeExpelliarPostRequest('/admin/questions/multiple', questionForm).then((res: any) => {
                 window.location.reload();
             });
-        } else {
-            console.log("error", questionForm);
         }
     };
 
@@ -92,9 +120,7 @@ const QuestionValidatorPage: React.FC = () => {
 
     const setQuestionField = (questionIndex: number, value: string) => {
         const newQuestions = [...questions];
-        console.log("before", newQuestions);
         newQuestions[questionIndex].text = value;
-        console.log("after", newQuestions);
         setQuestions(questions);
     }
 
@@ -129,6 +155,8 @@ const QuestionValidatorPage: React.FC = () => {
                             <input type="number" name={`complexity-question-${index}`} defaultValue={question.difficulty != null ? question.difficulty : -1} onChange={(e: React.FormEvent<HTMLInputElement>)=>{
                                 setComplexity(index, Number(e.currentTarget.value));
                             }}/>
+                                                            <span>{getDifficultyByInt(question.difficulty ?? -1)}</span>
+
                             </div>
                         </td>
                         {[0, 1, 2, 3].map((answerIndex) => {
@@ -161,17 +189,20 @@ const QuestionValidatorPage: React.FC = () => {
             </table>
             );
         }
-        return <div>Empty</div>;
+        return <div>Aucune question en attente</div>;
     };
 
   return (
     <div className="container question-validator-page">
       <header className="header-content"></header>
         {_renderTab()}
+        <div id="error-container">
+        <span id="error-span">{error}</span>
+            </div>
         <button onClick={(e)=>{
             handleSubmit(e)
         }}>
-            Valider
+            VALIDER
         </button>
     </div>
   );
