@@ -33,7 +33,6 @@ const QuestionValidatorPage: React.FC = () => {
     const checkForm = (questions: Array<QuestionType>): boolean => {
         var isOk = true;
         questions.forEach(question => {
-            console.log(question);
             if (!question.difficulty || question.difficulty < 0 || question.difficulty > 7){
                 isOk = false;
                 return;
@@ -57,6 +56,7 @@ const QuestionValidatorPage: React.FC = () => {
         event.preventDefault();
         var toSendQuestions: Array<QuestionType> = [];
         questions.forEach((question, index) => {
+            console.log(question);
             if (selectedQuestions[index]){
                 toSendQuestions.push(question);
             }
@@ -68,9 +68,12 @@ const QuestionValidatorPage: React.FC = () => {
 
         const isFormValid = checkForm(toSendQuestions);
         if (isFormValid) {
+            console.log(questionForm);
                 makeExpelliarPostRequest('/admin/questions/multiple', questionForm).then((res: any) => {
-                setQuestions(res)
+                window.location.reload();
             });
+        } else {
+            console.log("error", questionForm);
         }
     };
 
@@ -89,7 +92,9 @@ const QuestionValidatorPage: React.FC = () => {
 
     const setQuestionField = (questionIndex: number, value: string) => {
         const newQuestions = [...questions];
+        console.log("before", newQuestions);
         newQuestions[questionIndex].text = value;
+        console.log("after", newQuestions);
         setQuestions(questions);
     }
 
