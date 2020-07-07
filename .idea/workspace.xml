@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b3a281a-5e0c-471d-ba1a-da0ba6ed6c3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="8b3a281a-5e0c-471d-ba1a-da0ba6ed6c3c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,8 +153,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="440">
-                  <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+                <state relative-caret-position="140">
+                  <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#70#0" expanded="true" />
                   </folding>
@@ -503,18 +499,18 @@
       <workItem from="1588375099347" duration="445000" />
       <workItem from="1588439997536" duration="7517000" />
       <workItem from="1589026113936" duration="4584000" />
-      <workItem from="1589035990640" duration="8685000" />
+      <workItem from="1589035990640" duration="9322000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73442000" />
+    <option name="totallyTimeSpent" value="74079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14163615" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14163615" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -530,7 +526,7 @@
       <window_info anchor="bottom" id="GraphQL" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.43265307" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.43265307" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -852,8 +848,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/EditorPage/EditorPage.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+        <state relative-caret-position="140">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
           </folding>
