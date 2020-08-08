@@ -132,6 +132,9 @@ const QuestionValidatorPage: React.FC = () => {
     newQuestions[questionIndex].text = value;
     setQuestions(questions);
   };
+  const capitalize = (text: string): string => text.charAt(0).toUpperCase() + text.slice(1)
+
+
 
   const _renderTab = () => {
     if (questions.length > 0) {
@@ -165,7 +168,7 @@ const QuestionValidatorPage: React.FC = () => {
                   <td>
                     <textarea
                       name={`question-text-${index}`}
-                      defaultValue={question.text}
+                      defaultValue={capitalize(question.text)}
                       onChange={(e: any) => {
                         setQuestionField(index, e.currentTarget.value);
                       }}
