@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b3a281a-5e0c-471d-ba1a-da0ba6ed6c3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pages/Expelliar/QuestionValidatorPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Expelliar/QuestionValidatorPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,5 +120,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1596895429126">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1596895429126" />
   </component>
 </project>

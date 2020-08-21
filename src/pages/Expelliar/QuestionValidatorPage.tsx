@@ -61,6 +61,7 @@ const QuestionValidatorPage: React.FC = () => {
     var isOk = true;
     questions.forEach((question) => {
       if (
+        question.difficulty == null ||
         question.difficulty !== null &&
         (question.difficulty < 0 || question.difficulty > 3)
       ) {
