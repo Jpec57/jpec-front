@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b3a281a-5e0c-471d-ba1a-da0ba6ed6c3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Expelliar/QuestionValidatorPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Expelliar/QuestionValidatorPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +60,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
-  </component>
   <component name="ProjectId" id="1forXfHXQtMG2Pcff0tsqJxv8Uf" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -115,6 +112,7 @@
       <workItem from="1588439997536" duration="7517000" />
       <workItem from="1589026113936" duration="4584000" />
       <workItem from="1589035990640" duration="9322000" />
+      <workItem from="1598697815017" duration="1188000" />
     </task>
     <servers />
   </component>

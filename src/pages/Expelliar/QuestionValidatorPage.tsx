@@ -13,6 +13,7 @@ interface QuestionType {
   difficulty: number | null;
   answers: Array<string | undefined>;
   correctAnswer: string;
+  author: string;
 }
 
 enum difficulty {
@@ -30,6 +31,7 @@ const QuestionValidatorPage: React.FC = () => {
 
   useEffect(() => {
     makeExpelliarGetRequest("/questions/unaccepted").then((res: any) => {
+      console.log(res);
       setQuestions(res);
     });
   }, []);
@@ -62,7 +64,6 @@ const QuestionValidatorPage: React.FC = () => {
     questions.forEach((question) => {
       if (
         question.difficulty == null ||
-        question.difficulty !== null &&
         (question.difficulty < 0 || question.difficulty > 3)
       ) {
         setError(
@@ -133,6 +134,13 @@ const QuestionValidatorPage: React.FC = () => {
     newQuestions[questionIndex].text = value;
     setQuestions(questions);
   };
+
+  const setAuthorField = (questionIndex: number, value: string) => {
+    const newQuestions = [...questions];
+    newQuestions[questionIndex].author = value;
+    setQuestions(questions);
+  };
+
   const capitalize = (text: string): string => text.charAt(0).toUpperCase() + text.slice(1)
 
 
@@ -145,14 +153,15 @@ const QuestionValidatorPage: React.FC = () => {
             <tr>
               {[
                 "Question",
+                "Auteur",
                 "Complexité",
                 "Bonne réponse",
                 "Réponse 2",
                 "Réponse 3",
-                "Réponse 3",
+                "Réponse 4",
                 "Action",
               ].map((cell) => {
-                return <td>{cell}</td>;
+                return <td key={"header-" + cell}>{cell}</td>;
               })}
             </tr>
           </thead>
@@ -161,6 +170,7 @@ const QuestionValidatorPage: React.FC = () => {
               var nbAnswer = question.answers.length;
               return (
                 <tr
+                    key={index}
                   onClick={() => {
                     selectLine(index);
                   }}
@@ -176,10 +186,25 @@ const QuestionValidatorPage: React.FC = () => {
                     />
                   </td>
                   <td>
+                    <input
+                        type="text"
+                        name={`"author-"${index}`}
+                        defaultValue={question.author}
+                        disabled={true}
+                        onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                          setAuthorField(
+                              index,
+                              e.currentTarget.value
+                          );
+                        }}
+                    />
+                  </td>
+                  <td>
                     <div className="complexity-input">
                       <input
                         type="number"
                         name={`complexity-question-${index}`}
+                        max={difficulty.EXPERT}
                         defaultValue={
                           question.difficulty != null ? question.difficulty : -1
                         }
@@ -195,7 +220,7 @@ const QuestionValidatorPage: React.FC = () => {
                   {[0, 1, 2, 3].map((answerIndex) => {
                     var answers = question.answers;
                     return (
-                      <td>
+                      <td key={`question-${index}-answer-${answerIndex}`}>
                         <input
                           type="text"
                           name={`"answer-"${answerIndex}`}
