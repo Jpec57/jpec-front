@@ -94,6 +94,7 @@ const QuestionValidatorPage: React.FC = () => {
     questions.forEach((question, index) => {
       console.log(question);
       if (selectedQuestions[index]) {
+        question.correctAnswer = question.answers[0] ?? question.correctAnswer;
         toSendQuestions.push(question);
       }
     });
