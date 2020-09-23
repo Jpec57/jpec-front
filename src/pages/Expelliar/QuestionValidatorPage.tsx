@@ -94,6 +94,8 @@ const QuestionValidatorPage: React.FC = () => {
     questions.forEach((question, index) => {
       console.log(question);
       if (selectedQuestions[index]) {
+        //To fix questions with more than 4 questions
+        question.answers = question.answers.slice(0, 4)
         question.correctAnswer = question.answers[0] ?? question.correctAnswer;
         toSendQuestions.push(question);
       }
