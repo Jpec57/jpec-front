@@ -25,7 +25,11 @@ enum difficulty {
 
 const QuestionValidatorPage: React.FC = () => {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
+  const [similarQuestions, setSimilarQuestions] = useState<QuestionType[]>([]);
+
   const [error, setError] = useState<string>("");
+  const [searchText, setSearchText] = useState<string>("");
+
 
   const [selectedQuestions, setSelectedQuestions] = useState([false, false]);
 
@@ -55,9 +59,27 @@ const QuestionValidatorPage: React.FC = () => {
 
   const selectLine = (index: number) => {
     const tmp = [...selectedQuestions];
+    const selectedQuestion = questions[index];
+    console.log(selectedQuestion.answers[0]);
+    const acceptedAnswer = selectedQuestion.answers[0];
     tmp[index] = !tmp[index];
     setSelectedQuestions(tmp);
+    if (acceptedAnswer != null && acceptedAnswer.length > 2){
+      setSearchText(acceptedAnswer);
+      searchSimilarQuestions(acceptedAnswer);
+    }
   };
+
+  const searchSimilarQuestions = (s: string) => {
+    if (s != null && s.length > 2){
+      makeExpelliarGetRequest(`/questions/similar?answer=${s}`).then(
+        (res: any) => {
+          console.log(res);
+          setSimilarQuestions(res);
+        }
+      );
+    }
+  }
 
   const checkForm = (questions: Array<QuestionType>): boolean => {
     var isOk = true;
@@ -274,6 +296,27 @@ const QuestionValidatorPage: React.FC = () => {
       <div id="error-container">
         <span id="error-span">{error}</span>
       </div>
+
+      <div className="similar-question-container">
+        <input type="text" value={searchText} onChange={(e)=>{
+          setSearchText(e.target.value);
+          searchSimilarQuestions(searchText);
+        }
+          }/>
+        Questions potentiellement similaires ( <a href="https://www.youtube.com/watch?v=0gnhCayd3k8">clique sur une ligne pour lancer la recherche</a>)
+        <table id="similiar-question-table">
+<thead><th>id</th><th>Question</th><th>Réponses</th></thead>
+<tbody>
+{similarQuestions.map((question, index)=>{
+return (<tr>
+  <td>{question.id}</td>
+  <td>{question.text}</td>
+  <td>{question.answers.join(', ')}</td>
+  </tr>);
+})}
+</tbody>
+        </table>
+      </div> 
       <button
         onClick={(e) => {
           handleSubmit(e);
