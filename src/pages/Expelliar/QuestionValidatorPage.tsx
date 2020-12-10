@@ -25,10 +25,12 @@ enum difficulty {
 
 const QuestionValidatorPage: React.FC = () => {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
+  const [similarAnswerQuestions, setSimilarAnswerQuestions] = useState<QuestionType[]>([]);
   const [similarQuestions, setSimilarQuestions] = useState<QuestionType[]>([]);
 
   const [error, setError] = useState<string>("");
-  const [searchText, setSearchText] = useState<string>("");
+  const [answerSearchText, setAnswerSearchText] = useState<string>("");
+  const [questionSearchText, setQuestionSearchText] = useState<string>("");
 
 
   const [selectedQuestions, setSelectedQuestions] = useState([false, false]);
@@ -64,21 +66,43 @@ const QuestionValidatorPage: React.FC = () => {
     const acceptedAnswer = selectedQuestion.answers[0];
     tmp[index] = !tmp[index];
     setSelectedQuestions(tmp);
-    if (acceptedAnswer != null && acceptedAnswer.length > 2){
-      setSearchText(acceptedAnswer);
-      searchSimilarQuestions(acceptedAnswer);
+    if (acceptedAnswer != null && acceptedAnswer.length > 2) {
+      setAnswerSearchText(acceptedAnswer);
+      searchSimilarAnswerQuestions(acceptedAnswer);
+    }
+    if (selectedQuestion.text != null && selectedQuestion.text.length > 2){
+      setQuestionSearchText(selectedQuestion.text);
+      searchSimilarQuestions(selectedQuestion.text);
     }
   };
 
-  const searchSimilarQuestions = (s: string) => {
-    if (s != null && s.length > 2){
+  const searchSimilarAnswerQuestions = (s: string) => {
+    if (s != null && s.length > 2) {
       makeExpelliarGetRequest(`/questions/similar?answer=${s}`).then(
+        (res: any) => {
+          console.log(res);
+          setSimilarAnswerQuestions(res);
+        }
+      );
+    }
+  }
+
+  const searchSimilarQuestions = (s: string) => {
+    if (s != null && s.length > 2) {
+      makeExpelliarGetRequest(`/questions/similar?question=${s}`).then(
         (res: any) => {
           console.log(res);
           setSimilarQuestions(res);
         }
       );
     }
+  }
+
+  const fixQuestionRequest = (id: string) =>{
+    makeExpelliarGetRequest(`/questions/${id}/fix?questionId=${id}`).then((res: any) => {
+      console.log(res);
+
+    });
   }
 
   const checkForm = (questions: Array<QuestionType>): boolean => {
@@ -195,7 +219,7 @@ const QuestionValidatorPage: React.FC = () => {
               var nbAnswer = question.answers.length;
               return (
                 <tr
-                    key={index}
+                  key={index}
                   onClick={() => {
                     selectLine(index);
                   }}
@@ -212,16 +236,16 @@ const QuestionValidatorPage: React.FC = () => {
                   </td>
                   <td>
                     <input
-                        type="text"
-                        name={`"author-"${index}`}
-                        defaultValue={question.author}
-                        disabled={true}
-                        onChange={(e: React.FormEvent<HTMLInputElement>) => {
-                          setAuthorField(
-                              index,
-                              e.currentTarget.value
-                          );
-                        }}
+                      type="text"
+                      name={`"author-"${index}`}
+                      defaultValue={question.author}
+                      disabled={true}
+                      onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                        setAuthorField(
+                          index,
+                          e.currentTarget.value
+                        );
+                      }}
                     />
                   </td>
                   <td>
@@ -289,6 +313,60 @@ const QuestionValidatorPage: React.FC = () => {
     return <div>Aucune question en attente</div>;
   };
 
+
+  const _renderSimilarQuestionAnswerTable = () => {
+    return (<div className="similar-question-container">
+      <input type="text" value={answerSearchText} onChange={(e) => {
+        setAnswerSearchText(e.target.value);
+        searchSimilarAnswerQuestions(answerSearchText);
+      }
+      } />
+Questions AUX REPONSES potentiellement similaires ( <a href="https://www.youtube.com/watch?v=0gnhCayd3k8">clique sur une ligne pour lancer la recherche</a>)
+      <table id="similiar-question-table">
+        <thead><th>id</th><th>Question</th><th>Réponses</th><th>Actions</th></thead>
+        <tbody>
+          {similarAnswerQuestions.map((question, index) => {
+            return (<tr>
+              <td>{question.id}</td>
+              <td>{question.text}</td>
+              <td>{question.answers.join(', ')}</td>
+              <td style={{
+                backgroundColor: "#ff0000",
+                color: "#00000",
+                fontWeight: "bold",
+                fontSize: 20
+              }} onClick={()=>fixQuestionRequest(question.id.toString())}>FIX <i className="icon solid fa-pencil" /></td>
+            </tr>);
+          })}
+        </tbody>
+      </table>
+    </div>);
+  };
+
+  const _renderSimilarQuestionTable = () => {
+    return (<div className="similar-question-container">
+      <input type="text" value={questionSearchText} onChange={(e) => {
+        setQuestionSearchText(e.target.value);
+        searchSimilarQuestions(questionSearchText);
+      }
+      } />
+  Questions AU TEXTE potentiellement similaire ( <a href="https://www.youtube.com/watch?v=0gnhCayd3k8">clique sur une ligne pour lancer la recherche</a>)
+      <table id="similiar-question-table">
+        <thead><th>id</th><th>Question</th><th>Réponses</th><th>Actions</th></thead>
+        <tbody>
+          {similarQuestions.map((question, index) => {
+            return (<tr>
+              <td>{question.id}</td>
+              <td>{question.text}</td>
+              <td>{question.answers.join(', ')}</td>
+              <td onClick={()=>fixQuestionRequest(question.id.toString())}>FIX<i className="icon solid fa-pencil" /></td>
+            </tr>);
+          })}
+        </tbody>
+      </table>
+    </div>);
+  };
+
   return (
     <div className="container question-validator-page">
       <header className="header-content"></header>
@@ -297,26 +375,11 @@ const QuestionValidatorPage: React.FC = () => {
         <span id="error-span">{error}</span>
       </div>
 
-      <div className="similar-question-container">
-        <input type="text" value={searchText} onChange={(e)=>{
-          setSearchText(e.target.value);
-          searchSimilarQuestions(searchText);
-        }
-          }/>
-        Questions potentiellement similaires ( <a href="https://www.youtube.com/watch?v=0gnhCayd3k8">clique sur une ligne pour lancer la recherche</a>)
-        <table id="similiar-question-table">
-<thead><th>id</th><th>Question</th><th>Réponses</th></thead>
-<tbody>
-{similarQuestions.map((question, index)=>{
-return (<tr>
-  <td>{question.id}</td>
-  <td>{question.text}</td>
-  <td>{question.answers.join(', ')}</td>
-  </tr>);
-})}
-</tbody>
-        </table>
-      </div> 
+
+      {_renderSimilarQuestionAnswerTable()}
+      {_renderSimilarQuestionTable()}
+
+
       <button
         onClick={(e) => {
           handleSubmit(e);
